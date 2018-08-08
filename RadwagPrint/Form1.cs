@@ -27,12 +27,14 @@ namespace RadwagPrint
             PortComboBox.Items.AddRange(ports);
             PortComboBox.SelectedIndex = 1;
             CloseButton.Enabled = false;
+            toolStripStatusLabelConnected.Text = "Rozłączono";
         }
 
         private void OpenButton_Click(object sender, EventArgs e)
         {
             OpenButton.Enabled = false;
             CloseButton.Enabled = true;
+            toolStripStatusLabelConnected.Text = "Połączono";
             try
             {
                 serialPort.PortName = PortComboBox.Text;
@@ -47,6 +49,7 @@ namespace RadwagPrint
         {
             OpenButton.Enabled = true;
             CloseButton.Enabled = false;
+            toolStripStatusLabelConnected.Text = "Rozłączono";
             try
             {
                 serialPort.Close();
